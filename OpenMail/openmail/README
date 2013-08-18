@@ -1,0 +1,24 @@
+
+========
+OPENMAIL
+========
+
+
+FILES
+
+kvcred.py : implement credentials using a key-value store
+
+kvdomain.py : implements a Mail Domain (for ESMTP delivery) using a key-value store
+
+kvmailbox.py : implements Maildir-semantics using key-value store
+
+riakkv.py : implements basic key-value mail store actions using Riak
+
+pop3server.py : implements a POP3 service using our key-value mailbox
+
+mytap.py : this provides our key-value ESMTP service for the twistd tap infrastructure.
+
+webmail.py : kind of web interface for users, currently can manage their name/password with this.
+
+openmail.tac : this .tac script can be used to start the POP3 service and the web front for users
+

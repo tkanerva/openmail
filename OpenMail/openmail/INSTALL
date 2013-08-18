@@ -1,0 +1,20 @@
+To install this service stack, you need to have the dependencies installed.
+Refer to requirements.txt for these.
+
+Python 2.7 is recommended.
+
+For a backend storage, I'm using Riak and that's the only k-v store that is currently supported.
+Have a local Riak install and modify the port number accordingly.
+
+To use HTTPS/TLS, generate your own keys and put them into server.key and server.crt.
+(or cp your already-existing host keys)...
+
+To get stuff running, here's how I start the services:
+
+for ESMTP:
+sudo twistd -n --uid=8 --gid=8 mymail  --auth=riak -E -s 25 --relay=/dev/shm/test  --no-pop3 -d openmail.fi=/dev/shm/test2 -s ssl:465:privateKey=/home/topi/cert_and_privkey.pem -H openmail.fi
+
+for POP3/webui:
+twistd -ny openmail.tac
+
+N.B. make sure the openmail subdir is in your PYTHONPATH.

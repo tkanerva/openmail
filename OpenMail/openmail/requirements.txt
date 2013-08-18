@@ -1,0 +1,8 @@
+Padding>=0.4
+Twisted>=13.0.0
+klein>=0.2.0
+protobuf>=2.5.0
+pyOpenSSL>=0.13
+pycrypto>=2.6
+pyparsing>=1.5.6
+riakasaurus>=1.1.0

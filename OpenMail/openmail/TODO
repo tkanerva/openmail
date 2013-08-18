@@ -1,0 +1,8 @@
+* create proper interfaces so that any KV store can be used
+* clarify the exception handling model in the whole suite
+* figure out better ways to avoid needing a relay directory(filesystem) in ESMTP
+* unit tests, unit tests, unit tests
+
++ create an API for a web UI
++ integrate such an UI into this offering
++ implement encryption for the entire backend storage
