@@ -11,7 +11,7 @@ from twisted.mail.maildir import AbstractMaildirDomain, StringListMailbox, Dirdb
 from zope.interface import implementer
 from openmail.kvcred import RiakPasswordChecker
 from openmail.kvmailbox import KVMailbox
-from openmail.riakkv import RiakKV
+from openmail.kvstore import RiakKV
 
 INTERNAL_ERROR = '''\
 From: Twisted.mail Internals
@@ -79,7 +79,7 @@ class KVDomain(AbstractMaildirDomain):
 
         self.db = RiakKV()
         self.postmaster = postmaster
-        self._credcheckers = [ RiakPassword() ]
+        self._credcheckers = [ RiakPasswordChecker() ]
 
 
     # override this from AbstractMaildirDomain
