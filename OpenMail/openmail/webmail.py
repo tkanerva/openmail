@@ -131,9 +131,11 @@ type your search term(s) here:
                 headers, _, body = data.partition(content_trans)
             else:
                 headers, body = data, ''
-            out = headers
-            out += quopri.decodestring(body)
-            out = out.encode('ascii')
+            out = headers.decode('ascii')  # headers should always be ascii-onl
+            s = quopri.decodestring(body).decode('utf-8', errors='replace')
+            print type(out),type(s)
+            out = out + s
+            out = out.encode('utf-8')
             request.write('<pre>' + out + '</pre>')
 
     @app.route('/showSess')
